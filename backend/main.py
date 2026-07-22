@@ -27,6 +27,10 @@ origins = [
     "https://energy-shield-ai.vercel.app",
     "http://localhost:5173",  # Local Vite development URL
     "http://localhost:3000",  # Alternative local development URL
+    "energy-shield-ai-git-main-amey-s-projects2.vercel.app",
+    "energy-shield-bueklghl0-amey-s-projects2.vercel.app",
+    "energy-shield-ai.vercel.app","*"
+
 ]
 
 app.add_middleware(
