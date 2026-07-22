@@ -46,15 +46,17 @@ ROW_KEYWORDS = {
 
 NUMBER_RE = re.compile(r"[\d,]+\.?\d*")
 
-
 def scrape_page(url: str, timeout_ms: int = 30000) -> str:
     log.info(f"Launching Playwright for {url}")
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--disable-dev-shm-usage", "--no-sandbox", "--single-process", "--disable-gpu"],
+        )
         page = browser.new_page()
         try:
             page.goto(url, timeout=timeout_ms, wait_until="networkidle")
-            page.wait_for_timeout(2000)  # let any lazy JS tables render
+            page.wait_for_timeout(2000)
             html = page.content()
         except Exception as e:
             log.error(f"[Playwright] navigation failed: {e}")
@@ -62,6 +64,22 @@ def scrape_page(url: str, timeout_ms: int = 30000) -> str:
         finally:
             browser.close()
     return html
+
+# def scrape_page(url: str, timeout_ms: int = 30000) -> str:
+#     log.info(f"Launching Playwright for {url}")
+#     with sync_playwright() as p:
+#         browser = p.chromium.launch(headless=True)
+#         page = browser.new_page()
+#         try:
+#             page.goto(url, timeout=timeout_ms, wait_until="networkidle")
+#             page.wait_for_timeout(2000)  # let any lazy JS tables render
+#             html = page.content()
+#         except Exception as e:
+#             log.error(f"[Playwright] navigation failed: {e}")
+#             html = ""
+#         finally:
+#             browser.close()
+#     return html
 
 
 def extract_rows(html: str) -> list[dict]:
