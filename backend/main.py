@@ -135,7 +135,13 @@ def analyze_news(payload: NewsTestInput):
         "disruption_keywords": keywords,
         "related_existing_context": related,
     }
-
+@app.get("/")
+def read_root():
+    return {
+        "status": "online",
+        "service": "EnergyShield AI Backend",
+        "docs": "/docs"  # Points visitors/testers to FastAPI Swagger docs
+    }
 if __name__ == "__main__":
     import uvicorn
     # Render assigns PORT dynamically
