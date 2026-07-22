@@ -22,9 +22,17 @@ log = get_logger("api")
 
 app = FastAPI(title="Energy Supply Chain Resilience API")
 
+# Update CORS settings to explicitly allow your Vercel frontend URL
+origins = [
+    "https://energy-shield-ai.vercel.app",
+    "http://localhost:5173",  # Local Vite development URL
+    "http://localhost:3000",  # Alternative local development URL
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten this for anything beyond a hackathon demo
+    allow_origins=origins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
