@@ -3,31 +3,28 @@
 fastapi
 uvicorn[standard]
 pydantic
-pydantic-settings
 python-dotenv
 python-multipart
 
-# AI Agents & RAG Frameworks
+# AI Agents, LLM Clients & RAG
 crewai
-instructor
-openai
+groq
+google-generativeai
 chromadb
-lancedb
-
-# Data Processing & ML Base
-numpy
-pandas
-scikit-learn
 sentence-transformers
 
-# Utilities & Networking
-requests
-httpx
-jinja2
-tenacity
-pyyaml
-apscheduler
-python-dotenv
-playwright
-bs4
+# Data Processing & ML / Statistical Forecasting
+numpy
+pandas
 statsmodels
+arch
+scipy
+
+# Utilities & Networking
+httpx
+requests
+beautifulsoup4
+playwright
+apscheduler
+rich
+tenacity
