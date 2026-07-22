@@ -28,3 +28,4 @@ tenacity
 pyyaml
 apscheduler
 python-dotenv
+playwright
