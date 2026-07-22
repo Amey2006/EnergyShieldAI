@@ -1,0 +1,22 @@
+.env
+__pycache__/
+*.pyc
+venv/
+node_modules/
+backend/data/chroma/
+backend/data/*.json
+dist/
+.DS_Store
+venv
+/venv
+# Block python virtual environments
+.venv/
+venv/
+__pycache__/
+
+# Block frontend dependencies
+node_modules/
+dist/
+build/
+./frontend/node_modules
+/frontend/node_modules
