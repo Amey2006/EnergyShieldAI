@@ -29,3 +29,4 @@ pyyaml
 apscheduler
 python-dotenv
 playwright
+bs4
