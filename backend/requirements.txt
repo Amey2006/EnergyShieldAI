@@ -30,3 +30,4 @@ apscheduler
 python-dotenv
 playwright
 bs4
+statsmodels
