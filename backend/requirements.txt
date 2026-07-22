@@ -26,3 +26,5 @@ httpx
 jinja2
 tenacity
 pyyaml
+apscheduler
+python-dotenv
